@@ -23,7 +23,7 @@ public class FileWriter implements Consumer<Dataset<Row>> {
     public void accept(Dataset<Row> element) {
 
         try {
-            element.toDF().coalesce(2).write().mode(SaveMode.Overwrite).option("header", true).csv(outputPathStr);
+            element.toDF().coalesce(2).write().mode(SaveMode.Overwrite).option("delimiter", ";").option("header", true).csv(outputPathStr);
 
         } catch (Exception e) {
             e.printStackTrace();

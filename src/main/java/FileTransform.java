@@ -22,7 +22,6 @@ public class FileTransform {
         System.out.println( "Hello Alimentation Complement Collections!" );
 
         CsvFileReader reader = new CsvFileReader(inputPath);
-
         ConvertFileReader convertFileReader = new ConvertFileReader();
 
         Dataset<Row> rows = reader.get();

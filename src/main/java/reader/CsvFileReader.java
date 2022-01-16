@@ -20,6 +20,7 @@ public class CsvFileReader implements Supplier<Dataset<Row>> {
     private final SparkSession sparkSession;
 
     public CsvFileReader(String inputPathStr){
+
         this.inputPathStr=inputPathStr;
         this.sparkSession=SparkSession.builder().config(new SparkConf().setMaster("local[2]").setAppName("ComplementAlimentaire")).getOrCreate();
 
