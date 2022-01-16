@@ -17,6 +17,7 @@ import java.util.function.Consumer;
 @Slf4j
 @RequiredArgsConstructor
 public class FileWriter implements Consumer<Dataset<Row>> {
+
     private final String outputPathStr;
 
     @Override
@@ -24,7 +25,6 @@ public class FileWriter implements Consumer<Dataset<Row>> {
 
         try {
             element.toDF().coalesce(2).write().mode(SaveMode.Overwrite).option("delimiter", ";").option("header", true).csv(outputPathStr);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
