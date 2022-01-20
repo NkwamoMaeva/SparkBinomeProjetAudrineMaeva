@@ -28,9 +28,13 @@ public class FileTransform {
         Dataset<ComplementAlimentaire> complementAlimentaire = convertFileReader.apply(rows);
 
         Dataset<Row> statds2 = complementAlimentaire.groupBy("famillesPlantes").agg(count("idComplement").as("Nbre par Famille de plante"));
-        statds2.show();
+       statds2.show();
 
-        FileWriter writer = new FileWriter(outputPath);
-        writer.accept(statds2);
+//        Dataset<Row> stds = complementAlimentaire.select("plantes").as("fleurs");
+//        stds.printSchema();
+//        stds.show();
+
+      FileWriter writer = new FileWriter(outputPath);
+       writer.accept(statds2);
     }
 }
